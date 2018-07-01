@@ -1,0 +1,101 @@
+﻿
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<title>Fullscreen Mirror - Your Online Webcam Mirror</title>
+	
+	<meta property="og:title" content="Fullscreen Mirror - Your Online Webcam Mirror"/>
+	<meta property="og:type" content="cause"/>
+	<meta property="og:url" content="https://fullscreenmirror.com/"/>
+	<meta property="og:image" content="https://fullscreenmirror.com/fullscreenmirror.png"/>
+	<meta property="og:site_name" content="Fullscreen Mirror"/>
+	<meta property="fb:admins" content="500108777"/>
+	<meta property="og:description" content="This Fullscreen Mirror is an online webcam mirror. This means you just need to turn on your webcam and you can use your display as mirror."/>
+	
+	<meta name="description" content="🤳 This Fullscreen Mirror is an online webcam mirror. This means you just need to turn on your webcam and you can use your display as mirror.">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		body {
+			margin: 0 0 0 0;
+			color:#333;
+			background-color:#222;
+			background-image:url('allow.png');
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			background-position:right top; 
+			background-repeat: no-repeat; 
+		}
+		video { 
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -100;
+			background-size: cover;
+			transition: 1s opacity;
+			-moz-transform: scale(-1, 1); 
+			-webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); 
+			transform: scale(-1, 1); filter: FlipH;
+		}
+		canvas { }
+	</style>
+	<script type='text/javascript'>//<![CDATA[ 
+	window.onload=function(){
+	var video = null;
+	
+	var errorCallback = function(e) {
+		console.log("Error setting up video:", e);
+	};
+	
+	try{
+	    navigator.webkitGetUserMedia({video: true, audio: true}, function(localMediaStream) {
+		    video = document.querySelector('video');
+		    video.src = window.URL.createObjectURL(localMediaStream);
+		    video.muted = true; //this prevents a webcam from echoing in the speakers
+		    video.controls = false; //show fullscreen control elsewhere
+	    }, errorCallback);
+	}catch(e){
+	    console.log(e);
+	    console.log(navigator.webkitGetUserMedia);
+	}
+	}//]]>  
+	
+	</script>
+</head>
+<body>
+
+<video autoplay></video>	
+	
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=dittes"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'left',
+      'numPreferredServices' : 6
+    }   
+  });
+</script>
+<!-- AddThis Smart Layers END -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-25943586-22', 'fullscreenmirror.com');
+  ga('send', 'pageview');
+  ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>
